@@ -6,6 +6,7 @@ if [[ `whoami` == "root" ]]; then
     echo "You ran me as root! Do not run me as root!"
     exit 1
 fi
+sudo DEBIAN_FRONTEND=interactive
 echo "Before we get started, we need a bit of info from you..."
 echo ""
 read -p "Mailgun Key (Enter to skip): " mailgunKey

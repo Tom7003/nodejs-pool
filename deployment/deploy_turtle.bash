@@ -9,7 +9,8 @@ if [[ `whoami` == "root" ]]; then
 fi
 clear
 echo "Before we get started, we need a bit of info from you..."
-THISTTY=$(tty)
+THISTTY=$(ps -p $$ | tail -n 1 | awk '{ print $2 }')
+THISTTY="/dev/$THISTTY"
 echo "$THISTTY"
 sleep 15
 echo ""

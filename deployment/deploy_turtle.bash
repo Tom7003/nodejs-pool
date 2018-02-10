@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -i
 clear
 echo "This assumes that you are doing a green-field install.  If you're not, please exit in the next 15 seconds."
 sleep 15
@@ -12,17 +12,31 @@ echo "Before we get started, we need a bit of info from you..."
 THISTTY=$(ps -p $$ | tail -n 1 | awk '{ print $2 }')
 THISTTY="/dev/$THISTTY"
 echo ""
-read -p "Mailgun Key (Enter to skip): " mailgunKey <$THISTTY
-read -p "Mailgun URL (Enter to skip): " mailgunURL <$THISTTY
-read -p "Address Email comes From: " emailFrom <$THISTTY
-read -p "Administrator Password: " adminPass <$THISTTY
+echo "Mailgun Key (Enter to skip): "
+read mailgunKey
+echo ""
+echo "Mailgun URL (Enter to skip): "
+read mailgunURL
+echo ""
+echo "Address Email comes From: "
+read emailFrom
+echo ""
+echo "Administrator Password: "
+read adminPass
 clear
 echo "We need the following information to set up the daemon and wallet..."
 echo ""
-read -p "Pool Wallet Name: " poolWalletName <$THISTTY
-read -p "Pool Wallet Password: " poolWalletPassword <$THISTTY
-read -p "Pool Wallet RPC Password: " poolWalletRPCPassword <$THISTTY
-read -p "Fee Wallet Address: " feeAddress <$THISTTY
+echo "Pool Wallet Name: "
+read poolWalletName
+echo ""
+echo "Pool Wallet Password: "
+read poolWalletPassword
+echo ""
+echo "Pool Wallet RPC Password: "
+read poolWalletRPCPassword
+echo ""
+echo "Fee Wallet Address: "
+read feeAddress
 clear
 echo "Thank you. Continuing with Install."
 ROOT_SQL_PASS=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)

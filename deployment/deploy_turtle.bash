@@ -40,7 +40,7 @@ sudo mv libg* /usr/lib/
 cd ~
 sudo systemctl enable ntp
 cd /usr/local/src
-sudo curl -sL "https://raw.githubusercontent.com/turtlecoin/turtlecoin/master/multi_installer.sh" | bash
+su -u root -H curl -sL "https://raw.githubusercontent.com/turtlecoin/turtlecoin/master/multi_installer.sh" | bash
 echo "Generating new Pool Wallet..."
 cd ./turtlecoin/build/src
 ./walletd --container-file=$poolWalletName --container-password=$poolWalletPassword --generate-container

@@ -1,4 +1,4 @@
-#!/bin/bash -i
+#!/bin/bash
 clear
 echo "This assumes that you are doing a green-field install.  If you're not, please exit in the next 15 seconds."
 sleep 15
@@ -10,17 +10,17 @@ fi
 clear
 echo "Before we get started, we need a bit of info from you..."
 echo ""
-read -p "Mailgun Key (Enter to skip): " mailgunKey
-read -p "Mailgun URL (Enter to skip): " mailgunURL
-read -p "Address Email comes From: " emailFrom
-read -p "Administrator Password: " adminPass
+read -p "Mailgun Key (Enter to skip): " mailgunKey </dev/tty
+read -p "Mailgun URL (Enter to skip): " mailgunURL </dev/tty
+read -p "Address Email comes From: " emailFrom </dev/tty
+read -p "Administrator Password: " adminPass </dev/tty
 clear
 echo "We need the following information to set up the daemon and wallet..."
 echo ""
-read -p "Pool Wallet Name: " poolWalletName
-read -p "Pool Wallet Password: " poolWalletPassword
-read -p "Pool Wallet RPC Password: " poolWalletRPCPassword
-read -p "Fee Wallet Address: " feeAddress
+read -p "Pool Wallet Name: " poolWalletName </dev/tty
+read -p "Pool Wallet Password: " poolWalletPassword </dev/tty
+read -p "Pool Wallet RPC Password: " poolWalletRPCPassword </dev/tty
+read -p "Fee Wallet Address: " feeAddress </dev/tty
 clear
 echo "Thank you. Continuing with Install."
 ROOT_SQL_PASS=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)

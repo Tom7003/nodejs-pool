@@ -9,11 +9,11 @@ if [[ `whoami` == "root" ]]; then
 fi
 clear
 echo "Before we get started, we need a bit of info from you..."
-THISTTY = $(tty)
+THISTTY=$(tty)
 echo "$THISTTY"
 sleep 15
 echo ""
-exec 3<> $thistty
+exec 3<> $THISTTY
 read -u 3 -p "Mailgun Key (Enter to skip): " mailgunKey
 read -u 3 -p "Mailgun URL (Enter to skip): " mailgunURL
 read -u 3 -p "Address Email comes From: " emailFrom

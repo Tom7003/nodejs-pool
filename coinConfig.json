@@ -24,5 +24,13 @@
     "name": "Aeon Coin",
     "mixIn": 4,
     "shortCode": "AEON"
+  },
+  "trtl": {
+    "funcFile": "./lib/coins/trtl.js",
+    "paymentFile": "./payment_systems/trtl.js",
+    "sigDigits": 100,
+    "name": "Turtle Coin",
+    "mixIn": 4,
+    "shortCode": "trtl"
   }
 }

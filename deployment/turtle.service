@@ -1,0 +1,13 @@
+[Unit]
+Description=Turtle Daemon
+After=network.target
+
+[Service]
+Type=forking
+GuessMainPID=no
+ExecStart=/usr/local/src/turtlecoin/build/src/TurtleCoind
+Restart=always
+User=turtledaemon
+
+[Install]
+WantedBy=multi-user.target

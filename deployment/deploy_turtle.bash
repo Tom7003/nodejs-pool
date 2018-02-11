@@ -58,10 +58,10 @@ sudo mv libg* /usr/lib/
 cd ~
 sudo systemctl enable ntp
 cd /usr/local/src
-su -u root -H curl -sL "https://raw.githubusercontent.com/turtlecoin/turtlecoin/master/multi_installer.sh" | bash
+sudo bash <(curl -sL "https://raw.githubusercontent.com/turtlecoin/turtlecoin/master/multi_installer.sh")
 echo "Generating new Pool Wallet..."
 cd ./turtlecoin/build/src
-./walletd --container-file=$poolWalletName --container-password=$poolWalletPassword --generate-container
+sudo ./walletd --container-file=$poolWalletName --container-password=$poolWalletPassword --generate-container
 poolWallet=$(fgrep "New wallet is generated. Address:" walletd.log | sed 's/.*\ //')
 sudo cp ~/nodejs-pool/deployment/turtle.service /lib/systemd/system/
 sudo useradd -m turtledaemon -d /home/turtledaemon

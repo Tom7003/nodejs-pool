@@ -70,7 +70,7 @@ pm2 restart api
 
 Install Script:
 ```bash
-curl -L https://raw.githubusercontent.com/TwistedStudiosLLC/nodejs-pool/master/deployment/deploy_turtle.bash | bash
+bash <(curl -L https://raw.githubusercontent.com/TwistedStudiosLLC/nodejs-pool/master/deployment/deploy_turtle.bash)
 ```
 
 Assumptions for the installer

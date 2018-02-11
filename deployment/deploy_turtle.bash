@@ -57,8 +57,7 @@ sudo make
 sudo mv libg* /usr/lib/
 cd ~
 sudo systemctl enable ntp
-cd /usr/local/src
-sudo bash <(curl -sL "https://raw.githubusercontent.com/turtlecoin/turtlecoin/master/multi_installer.sh")
+sudo curl -L "https://raw.githubusercontent.com/turtlecoin/turtlecoin/master/multi_installer.sh" | bash
 echo "Generating new Pool Wallet..."
 cd ./turtlecoin/build/src
 sudo ./walletd --container-file=$poolWalletName --container-password=$poolWalletPassword --generate-container
@@ -133,7 +132,7 @@ cd ~/nodejs-pool/sql_sync/
 env PATH=$PATH:`pwd`/.nvm/versions/node/v6.9.2/bin node sql_sync.js
 echo "DB Setup Complete. Starting all PM2 Services."
 cd ~/nodejs-pool/
-pm2 start /usr/local/src/turtlecoin/build/src/walletd -- --container-file=$poolWalletName --container-password=$poolWalletPassword --rpc-password=$poolWalletRPCPassword --server-root=/usr/local/src/turtlecoin/build/src --local --daemon
+pm2 start ~/turtlecoin/build/src/walletd -- --container-file=$poolWalletName --container-password=$poolWalletPassword --rpc-password=$poolWalletRPCPassword --server-root=~/turtlecoin/build/src --local --daemon
 pm2 start init.js --name=blockManager --log-date-format="YYYY-MM-DD HH:mm Z"  -- --module=blockManager
 pm2 start init.js --name=worker --log-date-format="YYYY-MM-DD HH:mm Z" -- --module=worker
 pm2 start init.js --name=payments --log-date-format="YYYY-MM-DD HH:mm Z" -- --module=payments

@@ -62,9 +62,9 @@ echo "Generating new Pool Wallet..."
 cd ./turtlecoin/build/src
 sudo ./walletd --container-file=$poolWalletName --container-password=$poolWalletPassword --generate-container
 poolWallet=$(fgrep "New wallet is generated. Address:" walletd.log | sed 's/.*\ //')
+cd ~
+git clone https://github.com/TwistedStudiosLLC/nodejs-pool.git
 sudo cp ~/nodejs-pool/deployment/turtle.service /lib/systemd/system/
-sudo useradd -m turtledaemon -d /home/turtledaemon
-sudo -u turtledaemon mkdir /home/turtledaemon/.TurtleCoin
 sudo systemctl daemon-reload
 sudo systemctl enable turtle
 sudo systemctl start turtle
